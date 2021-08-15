@@ -203,7 +203,7 @@ header svg, header .text {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  margin: 0.4rem 0;
+  margin: 0.5rem 0;
 }
 
 .chatbox .post .avatar, .chatbox .received .avatar {
@@ -219,11 +219,16 @@ header svg, header .text {
           align-items: center;
 }
 
+.chatbox .post .avatar span, .chatbox .received .avatar span {
+  font-weight: bolder;
+  font-style: italic;
+}
+
 .chatbox .post p, .chatbox .received p {
   text-align: end;
   text-transform: lowercase;
   max-width: 320px;
-  padding: 0rem 0.1rem;
+  padding: 0rem 0.5rem;
   margin: 0 0.1rem;
   color: whitesmoke;
   border-radius: 0.2rem;
@@ -319,7 +324,7 @@ header svg, header .text {
   padding: 0 5rem;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: "header header" "chatbox songs" "blank player";
+      grid-template-areas: "header header" "chatbox songs" "player player";
   -ms-grid-rows: 70px auto 100px;
       grid-template-rows: 70px auto 100px;
   -ms-grid-columns: clamp(420px, 32%, 420px) auto;

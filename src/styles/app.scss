@@ -22,7 +22,7 @@ body {
     grid-template-areas:
     "header header"
     "chatbox songs"
-    "blank player";
+    "player player";
     grid-template-rows: 70px auto 100px;
     grid-template-columns: clamp(420px, 32%, 420px) auto;
     gap: 0.5rem;
