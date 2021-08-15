@@ -13,3 +13,29 @@ body {
 
 @import "./themebutton";
 @import "./header";
+@import "./chatbox";
+
+.App {
+    height: 99vh;
+    padding: 0 5rem;
+    display: grid;
+    grid-template-areas:
+    "header header"
+    "chatbox songs"
+    "blank player";
+    grid-template-rows: 70px auto 100px;
+    grid-template-columns: clamp(420px, 32%, 420px) auto;
+    gap: 0.5rem;
+
+    svg, .text {
+        z-index: 1;
+    }
+}
+
+header {
+    grid-area: header;
+}
+
+.chatbox {
+    grid-area: chatbox;
+}
