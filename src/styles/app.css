@@ -3,7 +3,8 @@
 *::after {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -14,48 +15,56 @@ body {
 .theme {
   position: relative;
 }
+
 .theme .dark-theme-btn {
   background-color: antiquewhite;
   position: absolute;
   top: 0;
   left: 0;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   width: 40px;
   height: 20px;
   border-radius: 0.9rem;
   cursor: pointer;
 }
+
 .theme .dark-theme-btn::after {
   background-color: #232533;
   content: "";
   position: absolute;
   top: 0%;
   left: 0%;
-  transform: translate(10%, 15%);
+  -webkit-transform: translate(10%, 15%);
+          transform: translate(10%, 15%);
   width: 16px;
   height: 16px;
   border-radius: 50%;
   cursor: pointer;
   animation: switchslide 500ms ease-in 1 reverse;
 }
+
 .theme .light-theme-btn {
   background-color: #232533;
   position: absolute;
   top: 0;
   left: 100%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   width: 40px;
   height: 20px;
   border-radius: 0.9rem;
   cursor: pointer;
 }
+
 .theme .light-theme-btn::after {
   background-color: #f5ddbe;
   content: "";
   position: absolute;
   top: 0%;
   left: 0%;
-  transform: translate(10%, 15%);
+  -webkit-transform: translate(10%, 15%);
+          transform: translate(10%, 15%);
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -63,24 +72,33 @@ body {
   -webkit-animation: switchslide 500ms ease-in 1 forwards;
           animation: switchslide 500ms ease-in 1 forwards;
 }
+
 .theme .theme-layer, .theme .light {
   position: absolute;
   top: 0;
   left: 0;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   width: 20px;
   height: 20px;
   background-color: antiquewhite;
   border-radius: 50%;
   pointer-events: none;
+  -webkit-transition: -webkit-transform 500ms linear;
+  transition: -webkit-transform 500ms linear;
   transition: transform 500ms linear;
+  transition: transform 500ms linear, -webkit-transform 500ms linear;
   mix-blend-mode: difference;
 }
+
 .theme .light {
-  transform: scale(500);
+  -webkit-transform: scale(500);
+          transform: scale(500);
 }
 
 @-webkit-keyframes switchslide {
+  0% {
+  }
   50% {
     width: 35px;
     border-radius: 10px;
@@ -97,6 +115,8 @@ body {
 }
 
 @keyframes switchslide {
+  0% {
+  }
   50% {
     width: 35px;
     border-radius: 10px;
@@ -111,14 +131,22 @@ body {
     border-radius: 50%;
   }
 }
+
 header {
   position: relative;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #232533;
 }
+
 header::after {
   content: "";
   position: absolute;
@@ -128,81 +156,139 @@ header::after {
   width: 100%;
   background-color: #5b3e96;
 }
+
 header svg, header .text {
   z-index: 1;
 }
 
 .chatbox {
+  display: -ms-grid;
   display: grid;
-  grid-template-areas: "chatbox-header" "chat-messages" "typebox";
-  grid-template-rows: 60px auto 40px;
-  grid-template-columns: 1fr;
+      grid-template-areas: "chatbox-header" "chat-messages" "typebox";
+  -ms-grid-rows: 60px auto 40px;
+      grid-template-rows: 60px auto 40px;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
   max-height: 680px;
   font-family: Arial, Helvetica, sans-serif;
   isolation: isolate;
 }
+
 .chatbox .chat-header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
   grid-area: chatbox-header;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #1b1d2b;
   color: #5b3e96;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 900;
 }
+
 .chatbox .post, .chatbox .received {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   margin: 0.4rem 0;
 }
+
 .chatbox .post .avatar, .chatbox .received .avatar {
-  width: 45px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background-color: cadetblue;
+  color: #5b3e96;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .chatbox .post p, .chatbox .received p {
+  text-align: end;
+  text-transform: lowercase;
   max-width: 320px;
-  padding: 0.5rem 0.2rem;
-  margin: 0 0.3rem;
-  color: black;
-  background-color: cadetblue;
+  padding: 0rem 0.1rem;
+  margin: 0 0.1rem;
+  color: whitesmoke;
   border-radius: 0.2rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
 .chatbox .received {
-  flex-direction: row-reverse;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
-.chatbox .received .avatar, .chatbox .received p {
-  background-color: chocolate;
+
+.chatbox .received .avatar {
+  color: crimson;
 }
+
+.chatbox .received p {
+  text-align: start;
+}
+
 .chatbox .message-list {
   padding: 0 0.5rem;
   height: 100%;
   overflow-y: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   scrollbar-color: #5b3e96 #1b1d2b;
   scrollbar-color: #ccc #1b1d2b;
   scrollbar-width: thin;
 }
+
 .chatbox .message-list::-webkit-scrollbar {
   width: 0.25rem;
 }
+
 .chatbox .message-list::-webkit-scrollbar-track {
   background: #1b1d2b;
 }
+
 .chatbox .message-list::-webkit-scrollbar-thumb {
   background: #6649b8;
 }
+
 .chatbox form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.chatbox form input[type=submit] {
-  flex: 0.3;
+
+.chatbox form input[type="submit"] {
+  -webkit-box-flex: 0.3;
+      -ms-flex: 0.3;
+          flex: 0.3;
   height: 100%;
   font-weight: 700;
   color: #5b3e96;
@@ -211,8 +297,11 @@ header svg, header .text {
   border: none;
   cursor: pointer;
 }
-.chatbox form input[type=text] {
-  flex: auto;
+
+.chatbox form input[type="text"] {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
   height: 100%;
   outline: none;
   border: none;
@@ -220,6 +309,7 @@ header svg, header .text {
   border-radius: 0.1rem;
   background-color: #e5e5e5;
 }
+
 .chatbox form input:focus {
   outline: 2px solid #5b3e96;
 }
@@ -227,20 +317,30 @@ header svg, header .text {
 .App {
   height: 99vh;
   padding: 0 5rem;
+  display: -ms-grid;
   display: grid;
-  grid-template-areas: "header header" "chatbox songs" "blank player";
-  grid-template-rows: 70px auto 100px;
-  grid-template-columns: clamp(420px, 32%, 420px) auto;
+      grid-template-areas: "header header" "chatbox songs" "blank player";
+  -ms-grid-rows: 70px auto 100px;
+      grid-template-rows: 70px auto 100px;
+  -ms-grid-columns: clamp(420px, 32%, 420px) auto;
+      grid-template-columns: clamp(420px, 32%, 420px) auto;
   gap: 0.5rem;
 }
+
 .App svg, .App .text {
   z-index: 1;
 }
 
 header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
   grid-area: header;
 }
 
 .chatbox {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
   grid-area: chatbox;
-}/*# sourceMappingURL=app.css.map */
+}
+/*# sourceMappingURL=app.css.map */
