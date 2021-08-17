@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const PlaybackSettingsContext = createContext();
 
-export const PlaybackSettingsProvider = ({props}) => {
+export const PlaybackSettingsProvider = (props) => {
     
     const [playbackSettings, setPlaybackSettings] = useState({
         shuffle: false,
@@ -20,8 +20,8 @@ export const PlaybackSettingsProvider = ({props}) => {
             if (state.repeat === "off") {
                 return {...state, repeat: "on"}
             } else if ( state.repeat === "on" ) {
-                return {...state, repeat: "repeat-one"}
-            } else if ( state.repeat === "repeat-one" ) {
+                return {...state, repeat: "one"}
+            } else if ( state.repeat === "one" ) {
                 return {...state, repeat: "off"}
             }
         });
