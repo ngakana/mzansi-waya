@@ -28,8 +28,8 @@ export const PlaybackSettingsProvider = ({props}) => {
     }
 
     return(
-        <PlaybackSettingsProvider value={{ playbackSettings, toggleShuffle, toggleRepeat }} >
+        <PlaybackSettingsContext.Provider value={{ playbackSettings, toggleShuffle, toggleRepeat }} >
             {props.children}
-        </PlaybackSettingsProvider>
+        </PlaybackSettingsContext.Provider>
     );
 }
