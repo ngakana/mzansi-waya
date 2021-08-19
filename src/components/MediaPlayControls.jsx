@@ -11,9 +11,9 @@ function MediaPlayControls({songIsPlaying}) {
             <SkipBackButton />
             {
                 songIsPlaying ? 
-                <PauseButton />
+                <PauseButton style={{ transform: "scale(2)" }} />
                 :
-                <PlayButton />
+                <PlayButton style={{ transform: "scale(2)" }} />
             }
             <SkipForwardButton />
         </div>
