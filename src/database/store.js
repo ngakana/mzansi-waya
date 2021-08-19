@@ -31,7 +31,7 @@ import Airplane_Mode from "database/wanderlust/Airplane-Mode Makzo Axian falcxne
 
 import { v4 as uuidv4 } from "uuid";
 
-function musicStore() {
+function data() {
 
 	return [
 
@@ -267,4 +267,4 @@ function musicStore() {
         },
 	]
 }
-export default musicStore;
+export default data;
