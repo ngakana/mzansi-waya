@@ -4,7 +4,7 @@ import { SongsContext } from "./SongsContext";
 
 export const PlayingSongContext = createContext();
 
-export const PlayingSongProvider = () => {
+export const PlayingSongProvider = (props) => {
 
     const { songs, setSongs } = useContext(SongsContext);
     
@@ -14,25 +14,26 @@ export const PlayingSongProvider = () => {
             prevState 
             :
             {
-                song: songs[0],
-                len: 0,
-                playedLen: 0,
-                playedLenPercentage: 0,
-                playing: false,
+                "song": songs[0],
+                "len": 0,
+                "playedLen": 0,
+                "playedLenPercentage": 0,
+                "playing": false,
             }
     });
 
     useEffect( () => {
+        localStorage.removeItem("lastplayed");
         localStorage.setItem("lastplayed", JSON.stringify(playingSong));
-    }, [playingSong.song, playingSong.playing]);
+    }, [playingSong]);
 
     const changePlayingSong = (desiredSong) => {
 
         const updatedSongs = songs.map( song => {
             if ( song.id === desiredSong.id ) {
-                const song = {...song, active: true}
+                const track = {...song, active: true}
                 setPlayingSong( state => {
-                    return {...state, song:song}
+                    return {...state, song:track}
                 });
                 
                 return song;
@@ -46,7 +47,7 @@ export const PlayingSongProvider = () => {
 
     return(
         <PlayingSongContext.Provider value={{ playingSong, setPlayingSong, changePlayingSong }}>
-            {checkPropTypes.children}
+            {props.children}
         </PlayingSongContext.Provider>
     );
 }
