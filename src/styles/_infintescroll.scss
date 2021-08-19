@@ -1,0 +1,39 @@
+.scroller-wrapper {
+  display: flex;
+  list-style: none;
+  white-space: nowrap;
+  overflow: hidden;
+  // margin: 0 0.2rem;
+
+  .scroller {
+    display: inline-block;
+    position: relative;
+    transform: translateX(10%);
+    // animation: scroller 5s linear 0s infinite;
+
+    span {
+      padding-right: 0.5rem;
+    }
+  }
+}
+
+@keyframes scroller {
+  0% {
+    transform: translateX(5%);
+  }
+  20% {
+    transform: translateX(-50%);
+  }
+  40% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(-50%);
+  }
+  80% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}

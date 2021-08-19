@@ -14,6 +14,8 @@ body {
 @import "./themebutton";
 @import "./header";
 @import "./chatbox";
+@import "./infintescroll";
+@import "./playerbar";
 
 .App {
     height: 99vh;
@@ -38,4 +40,8 @@ header {
 
 .chatbox {
     grid-area: chatbox;
+}
+
+.playerbar {
+    grid-area: player;
 }

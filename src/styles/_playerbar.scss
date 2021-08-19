@@ -1,0 +1,46 @@
+.playerbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.1rem 1rem;
+    background-color: thistle;
+
+    .fullscreen-button {
+        flex: 0.025;
+        // width: 2%;
+        cursor: pointer;
+    }
+
+    .song-card {
+        display: flex;
+
+        img {
+            width: 90px;
+            height: 80px;
+            object-fit: fill;
+            border-radius: 0.4rem;
+        }
+
+        .song-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            color: #5b3e96;
+            margin: 0.2rem 0;
+            width: 150px;
+        }
+    }
+
+    .media-play-controls {
+        display: flex;
+        justify-content: space-around;
+        // flex: 0.3;
+        width: 250px;
+        
+        svg {
+            width: 10%;
+            // margin: 0 0.8rem;
+        }
+    }
+}
