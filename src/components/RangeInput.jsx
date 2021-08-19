@@ -4,7 +4,7 @@ function RangeInput({icon, name, max, value, onChangeHandler}) {
     return(
         // <input type="range" name={name} id="" min="0" max={max} />
         <div className={name}>
-            <img src={icon} alt={`${name} icon`}/>
+            {/* <img src={icon} alt={`${name} icon`}/> */}
             <input
                 type="range"
                 name={name}
