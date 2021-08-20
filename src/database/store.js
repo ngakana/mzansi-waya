@@ -31,23 +31,23 @@ import Airplane_Mode from "database/wanderlust/Airplane-Mode Makzo Axian falcxne
 
 import { v4 as uuidv4 } from "uuid";
 
-function data() {
+function musicStore() {
 
 	return [
 
         {
             "album": "yano",
-            "artist": "Issa Da Deejay",
+            "artist": "Issa Da Deejay,",
             "artwork": yano_cover,
             "audio": Yano_Lofi_Mix,
             "title": "Yano Lofi Mix",
             "featured": ['Chill Gang'],
             "id": uuidv4(),
-            "active": true,
+            "active": false,
         },
         {
             "album": "mirage",
-            "artist": "Nymano",
+            "artist": "Nymano,",
             "artwork": mirage_cover,
             "audio": Train_Ride,
             "title": "Train Ride",
@@ -57,7 +57,7 @@ function data() {
         },
         {
             "album": "mirage",
-            "artist": "Nymano.mp3",
+            "artist": "Nymano.mp3,",
             "artwork": mirage_cover,
             "audio": The_Ride_Home_interlude,
             "title": "The Ride Home (interlude)",
@@ -67,7 +67,7 @@ function data() {
         },
         {
             "album": "mirage",
-            "artist": "Nymano",
+            "artist": "Nymano,",
             "artwork": mirage_cover,
             "audio": Sunday_Mornings,
             "title": "Sunday Mornings",
@@ -77,7 +77,7 @@ function data() {
         },
         {
             "album": "mirage",
-            "artist": "Nymano",
+            "artist": "Nymano,",
             "artwork": mirage_cover,
             "audio": Sleepover,
             "title": "Sleepover",
@@ -87,7 +87,7 @@ function data() {
         },
         {
             "album": "mirage",
-            "artist": "Nymano",
+            "artist": "Nymano,",
             "artwork": mirage_cover,
             "audio": Perfume,
             "title": "Perfume",
@@ -97,17 +97,17 @@ function data() {
         },
         {
             "album": "mirage",
-            "artist": "Nymano",
+            "artist": "Nymano,",
             "artwork": mirage_cover,
             "audio": One_Last_Call,
             "title": "One Last Call",
-            "featured": ['Kanisan', 'Mau'],
+            "featured": ['Kanisan,', 'Mau'],
             "id": uuidv4(),
             "active": false,
         },
         {
             "album": "mirage",
-            "artist": "Nymano",
+            "artist": "Nymano,",
             "artwork": mirage_cover,
             "audio": New_Horizons,
             "title": "New Horizons",
@@ -117,7 +117,7 @@ function data() {
         },
         {
             "album": "mirage",
-            "artist": "Nymano",
+            "artist": "Nymano,",
             "artwork": mirage_cover,
             "audio": Mirage,
             "title": "Mirage",
@@ -127,7 +127,7 @@ function data() {
         },
         {
             "album": "mirage",
-            "artist": "Nymano",
+            "artist": "Nymano,",
             "artwork": mirage_cover,
             "audio": False_Hope,
             "title": "False Hope",
@@ -137,17 +137,17 @@ function data() {
         },
         {
             "album": "mirage",
-            "artist": "Nymano",
+            "artist": "Nymano,",
             "artwork": mirage_cover,
             "audio": Distance,
             "title": "Distance",
-            "featured": ['Ouska', 'Anetta Morozova'],
+            "featured": ['Ouska,', 'Anetta Morozova'],
             "id": uuidv4(),
             "active": false,
         },
         {
             "album": "mirage",
-            "artist": "Nymano.mp3",
+            "artist": "Nymano.mp3,",
             "artwork": mirage_cover,
             "audio": Cold_Outside,
             "title": "Cold Outside",
@@ -157,7 +157,7 @@ function data() {
         },
         {
             "album": "mirage",
-            "artist": "Nymano",
+            "artist": "Nymano,",
             "artwork": mirage_cover,
             "audio": Blurry,
             "title": "Blurry",
@@ -167,7 +167,7 @@ function data() {
         },
         {
             "album": "wanderlust",
-            "artist": "makzo",
+            "artist": "makzo,",
             "artwork": mirage_cover,
             "audio": viatecture,
             "title": "viatecture",
@@ -177,7 +177,7 @@ function data() {
         },
         {
             "album": "wanderlust",
-            "artist": "Makzo",
+            "artist": "Makzo,",
             "artwork": wanderlust_cover,
             "audio": Wayfare,
             "title": "Wayfare",
@@ -187,7 +187,7 @@ function data() {
         },
         {
             "album": "wanderlust",
-            "artist": "makzo",
+            "artist": "makzo,",
             "artwork": wanderlust_cover,
             "audio": Trainspotting,
             "title": "Trainspotting",
@@ -197,7 +197,7 @@ function data() {
         },
         {
             "album": "wanderlust",
-            "artist": "Makzo",
+            "artist": "Makzo,",
             "artwork": wanderlust_cover,
             "audio": Tether,
             "title": "Tether",
@@ -207,7 +207,7 @@ function data() {
         },
         {
             "album": "wanderlust",
-            "artist": "makzo",
+            "artist": "makzo,",
             "artwork": wanderlust_cover,
             "audio": Safe_Haven,
             "title": "Safe Haven",
@@ -217,7 +217,7 @@ function data() {
         },
         {
             "album": "wanderlust",
-            "artist": "Makzo",
+            "artist": "Makzo,",
             "artwork": wanderlust_cover,
             "audio": Magnitude,
             "title": "Magnitude",
@@ -227,7 +227,7 @@ function data() {
         },
         {
             "album": "wanderlust",
-            "artist": "Makzo",
+            "artist": "Makzo,",
             "artwork": wanderlust_cover,
             "audio": Layover,
             "title": "Layover",
@@ -237,17 +237,17 @@ function data() {
         },
         {
             "album": "wanderlust",
-            "artist": "makzo",
+            "artist": "makzo,",
             "artwork": wanderlust_cover,
             "audio": Caravan,
             "title": "Caravan",
-            "featured": ['goosetaf', 'The Field Tapes'],
+            "featured": ['goosetaf,', 'The Field Tapes'],
             "id": uuidv4(),
             "active": false,
         },
         {
             "album": "wanderlust",
-            "artist": "Makzo",
+            "artist": "Makzo,",
             "artwork": wanderlust_cover,
             "audio": Badlands,
             "title": "Badlands",
@@ -257,14 +257,14 @@ function data() {
         },
         {
             "album": "wanderlust",
-            "artist": "Makzo",
+            "artist": "Makzo,",
             "artwork": wanderlust_cover,
             "audio": Airplane_Mode,
             "title": "Airplane Mode",
-            "featured": ['Axian', 'falcxne'],
+            "featured": ['Axian,', 'falcxne'],
             "id": uuidv4(),
             "active": false,
         },
 	]
 }
-export default data;
+export default musicStore;
