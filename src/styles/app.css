@@ -394,28 +394,33 @@ header svg, header .text {
 }
 
 .playerbar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+      grid-template-areas: "button song controls track settings volume";
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -ms-grid-columns: 30px 300px 250px auto 100px 150px;
+      grid-template-columns: 30px 300px 250px auto 100px 150px;
+  gap: 2rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   padding: 0.1rem 1rem;
-  background-color: thistle;
 }
 
 .playerbar .fullscreen-button {
-  -webkit-box-flex: 0.025;
-      -ms-flex: 0.025;
-          flex: 0.025;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: button;
   cursor: pointer;
+}
+
+.playerbar .fullscreen-button svg path[class="fa-primary"] {
+  fill: #5b3e96;
+}
+
+.playerbar .fullscreen-button svg path[class="fa-secondary"] {
+  fill: #5b3e96;
 }
 
 .playerbar .song-card {
@@ -445,20 +450,62 @@ header svg, header .text {
           justify-content: flex-start;
   color: #5b3e96;
   margin: 0.2rem 0;
-  width: 150px;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans';
+}
+
+.playerbar .song-card .song-details div:nth-child(1) {
+  font-weight: 900;
 }
 
 .playerbar .media-play-controls {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: controls;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  width: 250px;
 }
 
 .playerbar .media-play-controls svg {
   width: 10%;
+}
+
+.playerbar .media-play-controls svg path[class="fa-primary"] {
+  fill: #5b3e96c9;
+}
+
+.playerbar .media-play-controls svg path[class="fa-secondary"] {
+  fill: #5b3e96;
+}
+
+.playerbar input[name="track"] {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: track;
+  width: 100%;
+  background-color: whitesmoke;
+  height: 4px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.playerbar input[name="track"]::-moz-range-progress, .playerbar input[name="track"]::-webkit-slider-runnable-track {
+  height: 6px;
+  background-color: #5b3e96;
+}
+
+.playerbar input[name="track"]::-moz-range-thumb {
+  outline: none;
+  border: none;
+  background-color: #5b3e96;
+  border-radius: 50%;
+}
+
+.playerbar input[name="track"]:focus {
+  outline: 1px solid whitesmoke;
 }
 
 .App {
