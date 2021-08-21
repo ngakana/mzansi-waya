@@ -27,10 +27,10 @@ function PlaybackSettingsControls() {
                 <ShuffleButton className="shuffle-off" onClick={shuffleHandler} />
             }
             {
-                playbackRepeat === "off" ?
+                playbackSettings.repeat === "off" ?
                 <RepeatButton className="repeat-off" onClick={repeatHandler} />
                 :
-                playbackRepeat === "on" ?
+                playbackSettings.repeat === "on" ?
                 <RepeatButton className="repeat-on" onClick={repeatHandler} />
                 :
                 <RepeatOneButton className="repeat-one" onClick={repeatHandler} />
