@@ -7,6 +7,7 @@ import { ThemeProvider } from "./hooks/ThemeContext";
 import { PlaybackSettingsProvider } from "./hooks/PlaybackSettingsContext";
 import { SongsProvider } from 'hooks/SongsContext';
 import { PlayingSongProvider } from "./hooks/PlayingSongContext";
+import { MediaPlayControlsProvider } from "./hooks/MediaPlayControlsContext";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,7 +15,9 @@ ReactDOM.render(
       <SongsProvider>
         <PlaybackSettingsProvider>
           <PlayingSongProvider>
-            <App />
+            <MediaPlayControlsProvider>
+              <App />
+            </MediaPlayControlsProvider>
           </PlayingSongProvider>
         </PlaybackSettingsProvider>
       </SongsProvider>
