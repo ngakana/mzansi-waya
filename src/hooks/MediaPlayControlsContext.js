@@ -6,7 +6,7 @@ import { PlaybackSettingsContext } from "./PlaybackSettingsContext";
 
 export const MediaPlayControlsContext = createContext();
 
-export const MediaPlayControls = (props) => {
+export const MediaPlayControlsProvider = (props) => {
 
     const { playingSong, setPlayingSong, changePlayingSong } = useContext(PlayingSongContext);
     const { songs, setSongs } = useContext(SongsContext);
@@ -29,13 +29,13 @@ export const MediaPlayControls = (props) => {
     /*************************************************/
 
     /******************************************* SKIP *************************************************/
-    const getRandomIndex = (max) => {
+    const getRandomIndex = (max, curIndex) => {
         let randomIndex = Math.ceil(Math.random() * max);
-        if( randomIndex !== playingSongIndex ){
+        if( randomIndex !== curIndex ){
             return randomIndex
         }
         else{
-            getRandomIndex()
+            getRandomIndex(max, curIndex);
         }
     }
 
@@ -45,23 +45,23 @@ export const MediaPlayControls = (props) => {
         switch (dir) {
             case "next":
                 if ( playbackSettings.shuffle ) {
-                    nextIndex = getRandomIndex(max);
+                    nextIndex = getRandomIndex(max, curIndex);
                 } else {
-                    nextIndex = curIndex >= len - 1 ? 0 : currentIndex + 1;
+                    nextIndex = curIndex >= max - 1 ? 0 : curIndex + 1;
                 }
                 break;
             case "prev":
                 if ( playbackSettings.shuffle ) {
                     nextIndex = getRandomIndex(max);
                 } else {
-                    nextIndex = currentIndex <= 0 ? len - 1 : currentIndex - 1;
+                    nextIndex = curIndex <= 0 ? max - 1 : curIndex - 1;
                 }
                 break;        
             default:
                 if (playbackSettings.repeat === "off") {
                     nextIndex = null;
                 } else if ( playbackSettings.repeat === "on" ) {
-                    nextIndex = currentIndex <= 0 ? len - 1 : currentIndex - 1;
+                    nextIndex = curIndex <= 0 ? max - 1 : curIndex - 1;
                 } else if ( playbackSettings.repeat === "one" ) {
                     nextIndex = curIndex;
                 }
@@ -78,12 +78,12 @@ export const MediaPlayControls = (props) => {
 
         /* SKIP FORWARD */
         if ( skipdir === "next" ) {
-            let nextIndex = getValidNextIndex(dir="next", curIndex=currentIndex, max=(len - 1));
+            let nextIndex = getValidNextIndex("next", currentIndex, (len - 1));
             changePlayingSong(songs[nextIndex]);
         }
         /* SKIP BACKWARDS */
         else if ( skipdir === "prev" ) {
-            let nextIndex = getValidNextIndex(dir="prev", curIndex=currentIndex, max=(len - 1));
+            let nextIndex = getValidNextIndex("prev", currentIndex, (len - 1));
             changePlayingSong(songs[nextIndex]);
         }
 
@@ -107,7 +107,7 @@ export const MediaPlayControls = (props) => {
     const songEndHandler = () => {
         let len = songs.length;
         let currentIndex = songs.findIndex( song => song.id === playingSong.song.id );
-        let nextIndex = getValidNextIndex(dir="", curIndex=currentIndex, max=len-1);
+        let nextIndex = getValidNextIndex("", currentIndex, len-1);
 
         if ( nextIndex === null ) {
             changePlayingSong(songs[currentIndex]);
@@ -115,6 +115,32 @@ export const MediaPlayControls = (props) => {
             changePlayingSong(songs[nextIndex]);
             audioRef.current.play()
         }
+    }
+    /**********************************************************************************/
+
+    /********************************* DURING PLAY ********************************/
+    
+    const formatTimeInfo = (time) => {
+        if (time < 3600){
+          return Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2);
+        }
+        else {
+          return Math.floor(time / 3600) + ":" + ("0" + Math.floor(time%3600 /60)).slice(-2) + ":" + ("0" + Math.floor(time%(3600*60)%60)).slice(-2);
+        }
+    }
+
+    const songTimeUpdatehandler = (event) => {
+
+        const duration = event.target.duration;
+        const currentLength = event.target.currentTime;
+        const currentProgress = (Math.round(duration)/Math.round(currentLength))*100;
+
+        setPlayingSong( (playingSong) => ({
+            ...playingSong, 
+            length: duration,
+            playedLength: currentLength,
+            playedLengthPercentage: currentProgress
+        }))
     }
     /**********************************************************************************/
 
