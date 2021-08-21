@@ -5,7 +5,9 @@ import { ReactComponent as MinimizeButton } from "assets/icons/arrows-minimize.s
 
 import SongCard from "./SongCard";
 import MediaPlayControls from "./MediaPlayControls";
-import RangeInput from "./RangeInput";
+import SongProgressBar from "./SongProgressBar";
+import PlaybackSettingsControls from "./PlaybackSettingsControls";
+import VolumeControl from "./VolumeControl";
 
 import { PlayingSongContext } from "hooks/PlayingSongContext";
 
@@ -35,11 +37,9 @@ function Playerbar() {
                 featured={playingSong.song.featured}
             />
             <MediaPlayControls />
-            <RangeInput 
-                name="track" 
-                max={playingSong.song.len}
-                value={playingSong.song.len}
-            />
+            <PlaybackSettingsControls />
+            <SongProgressBar />
+            <VolumeControl />
         </div>
     );
 }
