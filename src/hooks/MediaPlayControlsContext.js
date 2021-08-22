@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useRef } from "react";
+import { createContext, useContext, useRef } from "react";
 
 import { PlayingSongContext } from "./PlayingSongContext";
 import { SongsContext } from "./SongsContext";
@@ -9,10 +9,10 @@ export const MediaPlayControlsContext = createContext();
 export const MediaPlayControlsProvider = (props) => {
 
     const { playingSong, setPlayingSong, changePlayingSong } = useContext(PlayingSongContext);
-    const { songs, setSongs } = useContext(SongsContext);
-    const { playbackSettings, toggleShuffle, toggleRepeat } = useContext(PlaybackSettingsContext);
+    const { songs } = useContext(SongsContext);
+    const { playbackSettings } = useContext(PlaybackSettingsContext);
 
-    const audioRef = useRef(playingSong.playedLen);
+    const audioRef = useRef(null);
 
     /****************** PLAY/PAUSE ******************/
     const playButtonHandler = () => {
@@ -74,7 +74,8 @@ export const MediaPlayControlsProvider = (props) => {
     const skipButtonHandler = (skipdir) => {
         let len = songs.length;
         let currentIndex = songs.findIndex( song => song.id === playingSong.song.id );
-        let wasPlaying = playingSong.playing;
+        let wasPlaying = !audioRef.current.paused;
+        audioRef.current.pause();
 
         /* SKIP FORWARD */
         if ( skipdir === "next" ) {
@@ -86,8 +87,15 @@ export const MediaPlayControlsProvider = (props) => {
             let nextIndex = getValidNextIndex("prev", currentIndex, (len - 1));
             changePlayingSong(songs[nextIndex]);
         }
-
-        if ( wasPlaying ) { audioRef.current.play() }
+        if ( wasPlaying ) { 
+            audioRef.current.pause();
+            setTimeout(() => {
+                audioRef.current.play();
+            }, 0.1);
+            setPlayingSong( state => {
+                return {...state, playing: true}
+            });
+        }
 
     }
     /**************************************************************************************************/
@@ -115,6 +123,9 @@ export const MediaPlayControlsProvider = (props) => {
             changePlayingSong(songs[nextIndex]);
             audioRef.current.play()
         }
+        setPlayingSong( state => {
+            return {...state, playedLen: 0, playing: false}
+        });
     }
     /**********************************************************************************/
 
@@ -137,15 +148,15 @@ export const MediaPlayControlsProvider = (props) => {
 
         setPlayingSong( (playingSong) => ({
             ...playingSong, 
-            length: duration,
-            playedLength: currentLength,
-            playedLengthPercentage: currentProgress
+            len: duration,
+            playedLen: currentLength,
+            playedLenPercentage: currentProgress
         }))
     }
     /**********************************************************************************/
 
     return(
-        <MediaPlayControlsContext.Provider value={{ playButtonHandler, skipButtonHandler, seekHandler, songEndHandler }} >
+        <MediaPlayControlsContext.Provider value={{ audioRef, playButtonHandler, skipButtonHandler, seekHandler, songEndHandler, formatTimeInfo, songTimeUpdatehandler }} >
             {props.children}
         </MediaPlayControlsContext.Provider>
     );
