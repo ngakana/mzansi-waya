@@ -1,5 +1,5 @@
 
-function RangeInput({name, max}) {
+function RangeInput({name, max, progress, changeHandler}) {
 
     return(
         <div className={name}>
@@ -8,6 +8,8 @@ function RangeInput({name, max}) {
                 name={name}
                 min="0"
                 max={max || 0}
+                value={progress}
+                onChange={changeHandler}
             />
         </div>
     );
