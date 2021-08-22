@@ -1,33 +1,45 @@
-import { useRef, useContext } from "react";
+import { useContext } from "react";
 
 import { ReactComponent as SkipBackButton } from "assets/icons/backward-step.svg";
 import { ReactComponent as SkipForwardButton } from "assets/icons/forward-step.svg";
-import { ReactComponent as PlayButton } from "assets/icons/play.svg";
-import { ReactComponent as PauseButton } from "assets/icons/pause.svg";
+import { ReactComponent as PlayButton } from "assets/icons/play-circle.svg";
+import { ReactComponent as PauseButton } from "assets/icons/pause-circle.svg";
 
 import { PlayingSongContext } from "hooks/PlayingSongContext";
 import { MediaPlayControlsContext } from "hooks/MediaPlayControlsContext";
 
-function MediaPlayControls({songIsPlaying}) {
+function MediaPlayControls() {
 
-    const audioRef = useRef(null);
+    const { playingSong } = useContext(PlayingSongContext);
+    const { audioRef, playButtonHandler, skipButtonHandler, songEndHandler, songTimeUpdatehandler } = useContext(MediaPlayControlsContext);
 
-    const { playingSong, setPlayingSong, changePlayingSong } = useContext(PlayingSongContext);
-    const { playButtonHandler, skipButtonHandler, seekHandler, songEndHandler } = useContext(MediaPlayControlsContext);
+    const skipBack = () => {
+        skipButtonHandler("prev")
+    }
+
+    const skipForward = () => {
+        skipButtonHandler("next")
+    }
 
     return(
         <div className="media-play-controls">
-            <SkipBackButton />
+            <SkipBackButton onClick={skipBack} />
             {
-                songIsPlaying ? 
-                <PauseButton style={{ transform: "scale(2)" }} />
+                playingSong.playing ? 
+                <PauseButton 
+                    style={{ transform: "scale(2)" }} 
+                    onClick={playButtonHandler}
+                />
                 :
-                <PlayButton style={{ transform: "scale(2)" }} />
+                <PlayButton 
+                    style={{ transform: "scale(2)" }}
+                    onClick={playButtonHandler} 
+                />
             }
-            <SkipForwardButton />
+            <SkipForwardButton onClick={skipForward} />
             <audio
-                // onTimeUpdate={songTimeUpdatehandler} 
-                // onLoadedMetadata={songTimeUpdatehandler}
+                onTimeUpdate={songTimeUpdatehandler} 
+                onLoadedMetadata={songTimeUpdatehandler}
                 ref={audioRef}
                 src={playingSong.song.audio}
                 onEnded={songEndHandler}
