@@ -1,26 +1,13 @@
 .playerbar {
     grid-template-areas:
-    "button song controls track settings volume";
+    "song controls track settings volume";
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 30px 200px 150px auto 80px 150px;
+    grid-template-columns: 250px 150px auto 80px 150px;
     gap: 1.5rem;
     align-items: center;
-    padding: 0.1rem 1rem;
+    padding: 0.1rem 0.5rem;
     border-top: 2px solid black;
-
-    .fullscreen-button {
-        grid-area: button;
-        svg {
-            path[class="fa-primary"] {
-                fill: #5b3e96;
-            }
-            path[class="fa-secondary"] {
-                fill: #5b3e96;
-            }
-        }
-        cursor: pointer;
-    }
 
     .song-card {
         display: flex;
@@ -62,7 +49,11 @@
             }
             path[class="fa-secondary"] {
                 fill: #5b3e96;
-            }            
+            }  
+            cursor: pointer;    
+        }
+        svg &:focus {
+            border: 1px solid whitesmoke;
         }
     }
 
