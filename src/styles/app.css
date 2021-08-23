@@ -535,6 +535,9 @@ svg .playerbar .media-play-controls:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -542,9 +545,10 @@ svg .playerbar .media-play-controls:focus {
 
 .playerbar .volume svg {
   cursor: pointer;
-  -webkit-box-flex: 0.35;
-      -ms-flex: 0.35;
-          flex: 0.35;
+  -webkit-box-flex: 0.3;
+      -ms-flex: 0.3;
+          flex: 0.3;
+  height: 50px;
   padding: 0.5rem;
 }
 

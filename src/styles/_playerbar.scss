@@ -124,11 +124,14 @@
     .volume {
         grid-area: volume;
         display: flex;
+        justify-content: flex-start;
         align-items: center;
 
         svg {
             cursor: pointer;
-            flex: 0.35;
+            flex: 0.3;
+            height: 50px;
+            // width: 50px;
             padding: 0.5rem;
 
             path[class="fa-secondary"], path[class="fa-primary"] {
