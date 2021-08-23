@@ -439,10 +439,11 @@ header svg, header .text {
 }
 
 .playerbar .media-play-controls svg path[class="fa-secondary"] {
-  fill: #5b3e96;
+  fill: #5b3e963a;
+  opacity: 1;
 }
 
-svg .playerbar .media-play-controls:focus {
+.playerbar .media-play-controls svg:focus {
   border: 1px solid whitesmoke;
 }
 
@@ -459,6 +460,12 @@ svg .playerbar .media-play-controls:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.playerbar .song-progress-bar p {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #5b3e96;
+  font-weight: bold;
 }
 
 .playerbar .song-progress-bar .track {

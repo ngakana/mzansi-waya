@@ -23,20 +23,28 @@ function MediaPlayControls() {
 
     return(
         <div className="media-play-controls">
-            <SkipBackButton onClick={skipBack} />
+            <SkipBackButton 
+                onClick={skipBack}
+                tabIndex={0} 
+            />
             {
                 playingSong.playing ? 
                 <PauseButton 
                     style={{ transform: "scale(2)" }} 
                     onClick={playButtonHandler}
+                    tabIndex={0}
                 />
                 :
                 <PlayButton 
                     style={{ transform: "scale(2)" }}
                     onClick={playButtonHandler} 
+                    tabIndex={0}
                 />
             }
-            <SkipForwardButton onClick={skipForward} />
+            <SkipForwardButton 
+                onClick={skipForward} 
+                tabIndex={0}
+            />
             <audio
                 onTimeUpdate={songTimeUpdatehandler} 
                 onLoadedMetadata={songTimeUpdatehandler}
