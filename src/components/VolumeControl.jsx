@@ -18,7 +18,6 @@ function VolumeControl() {
     const handleSeek = (event) => {
         setVol(event.target.value);
         audioRef.current.volume = parseFloat((event.target.value/100).toFixed(1));
-        console.log(audioRef.current);
     }
 
     const toggleVol = () => {
