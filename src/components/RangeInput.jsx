@@ -1,5 +1,5 @@
 
-function RangeInput({name, max, step, progress, changeHandler}) {
+function RangeInput({name, max, step, progress, changeHandler, handleKeyPress}) {
 
     return(
         <div className={name}>
@@ -11,6 +11,7 @@ function RangeInput({name, max, step, progress, changeHandler}) {
                 step={step}
                 value={progress}
                 onChange={changeHandler}
+                onKeyDown={handleKeyPress}
             />
         </div>
     );
