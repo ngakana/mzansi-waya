@@ -23,6 +23,7 @@ function VolumeControl() {
 
     const toggleVol = () => {
         setIsmute(!ismute);
+        audioRef.current.muted = !audioRef.current.muted;
     }
 
     return(
