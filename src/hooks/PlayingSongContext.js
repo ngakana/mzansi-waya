@@ -22,7 +22,6 @@ export const PlayingSongProvider = (props) => {
 
         const updatedSongs = songs.map( song => {
             if ( song.id === desiredSong.id ) {
-                const track = {...song, active: true}
                 setPlayingSong({
                     "song": song,
                     "len": 0,
