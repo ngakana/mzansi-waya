@@ -166,6 +166,7 @@
                 }
 
                 &:focus {
+                    outline: none;
                     &::-moz-range-thumb {
                         outline: 1px solid whitesmoke;
                     }

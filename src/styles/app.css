@@ -592,6 +592,10 @@ header svg, header .text {
   border-radius: 50%;
 }
 
+.playerbar .volume .vol input:focus {
+  outline: none;
+}
+
 .playerbar .volume .vol input:focus::-moz-range-thumb {
   outline: 1px solid whitesmoke;
 }
