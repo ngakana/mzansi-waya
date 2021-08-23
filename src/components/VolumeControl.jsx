@@ -25,6 +25,18 @@ function VolumeControl() {
         audioRef.current.muted = !audioRef.current.muted;
     }
 
+    const handleKeyPress = (event) => {
+        if ( event.key === "ArrowLeft" ) {
+            let newVal = (event.target.value - 10)>=0 ? (event.target.value - 10) : 0;
+            setVol(newVal);
+            audioRef.current.volume = parseFloat((newVal/100).toFixed(1));
+        }else if ( event.key === "ArrowRight" ) {
+            let newVal = (event.target.valueAsNumber + 10)<=100 ? (event.target.valueAsNumber + 10) : 100;
+            setVol(newVal);
+            audioRef.current.volume = parseFloat((newVal/100).toFixed(1));
+        }
+    }
+
     return(
         <div className="volume">
             
@@ -47,9 +59,11 @@ function VolumeControl() {
                 name="vol"
                 min="0"
                 max="100"
-                progress={(audioRef.current && (audioRef.current.volume*100) || vol)}
+                step="5"
+                progress={(audioRef.current && (audioRef.current.volume*100)) || vol}
                 // progress={vol}
                 changeHandler={handleSeek}
+                handleKeyPress={handleKeyPress}
             />
         </div>
     );
