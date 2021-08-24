@@ -5,7 +5,8 @@ function SongCard({artwork, title, artist, featured}) {
     name[0] = title;
 
     let artists = [];
-    artists.unshift(artist, featured);
+    artists.unshift(artist, ...featured);
+    // console.log(...artists);
 
     return(
         <div className="song-card">
