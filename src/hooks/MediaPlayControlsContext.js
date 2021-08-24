@@ -71,7 +71,7 @@ export const MediaPlayControlsProvider = (props) => {
         return nextIndex;
     }
 
-    const skipButtonHandler = (skipdir) => {
+    const skipButtonHandler = async (skipdir) => {
         let len = songs.length;
         let currentIndex = songs.findIndex( song => song.id === playingSong.song.id );
         let wasPlaying = !audioRef.current.paused;
@@ -80,12 +80,12 @@ export const MediaPlayControlsProvider = (props) => {
         /* SKIP FORWARD */
         if ( skipdir === "next" ) {
             let nextIndex = getValidNextIndex("next", currentIndex, (len - 1));
-            changePlayingSong(songs[nextIndex]);
+            await changePlayingSong(songs[nextIndex]);
         }
         /* SKIP BACKWARDS */
         else if ( skipdir === "prev" ) {
             let nextIndex = getValidNextIndex("prev", currentIndex, (len - 1));
-            changePlayingSong(songs[nextIndex]);
+            await changePlayingSong(songs[nextIndex]);
         }
         if ( wasPlaying ) { 
             audioRef.current.pause();
