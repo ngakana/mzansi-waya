@@ -54,7 +54,7 @@ export const MediaPlayControlsProvider = (props) => {
                 if ( playbackSettings.shuffle ) {
                     nextIndex = getRandomIndex(max);
                 } else {
-                    nextIndex = curIndex <= 0 ? max - 1 : curIndex - 1;
+                    nextIndex = curIndex <= 0 ? max : curIndex - 1;
                 }
                 break;        
             default:
@@ -80,12 +80,12 @@ export const MediaPlayControlsProvider = (props) => {
         /* SKIP FORWARD */
         if ( skipdir === "next" ) {
             let nextIndex = getValidNextIndex("next", currentIndex, (len - 1));
-            await changePlayingSong(songs[nextIndex]);
+            await changePlayingSong(songs[nextIndex].id);
         }
         /* SKIP BACKWARDS */
         else if ( skipdir === "prev" ) {
             let nextIndex = getValidNextIndex("prev", currentIndex, (len - 1));
-            await changePlayingSong(songs[nextIndex]);
+            await changePlayingSong(songs[nextIndex].id);
         }
         if ( wasPlaying ) { 
             audioRef.current.pause();
@@ -118,9 +118,9 @@ export const MediaPlayControlsProvider = (props) => {
         let nextIndex = getValidNextIndex("", currentIndex, (len - 1));
 
         if ( nextIndex === null ) {
-            changePlayingSong(songs[currentIndex]);
+            changePlayingSong(songs[currentIndex].id);
         } else {
-            changePlayingSong(songs[nextIndex]);
+            changePlayingSong(songs[nextIndex].id);
             setTimeout(() => {
                 audioRef.current.play();
             }, 0.1);
