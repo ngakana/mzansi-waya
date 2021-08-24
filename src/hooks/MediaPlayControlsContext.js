@@ -60,8 +60,8 @@ export const MediaPlayControlsProvider = (props) => {
             default:
                 if (playbackSettings.repeat === "off") {
                     nextIndex = null;
-                } else if ( playbackSettings.repeat === "on" ) {
-                    nextIndex = curIndex <= 0 ? max - 1 : curIndex - 1;
+                } else if ( playbackSettings.repeat === "on" ) { 
+                    nextIndex = curIndex >= max - 1 ? 0 : curIndex + 1;
                 } else if ( playbackSettings.repeat === "one" ) {
                     nextIndex = curIndex;
                 }
@@ -115,17 +115,19 @@ export const MediaPlayControlsProvider = (props) => {
     const songEndHandler = () => {
         let len = songs.length;
         let currentIndex = songs.findIndex( song => song.id === playingSong.song.id );
-        let nextIndex = getValidNextIndex("", currentIndex, len-1);
+        let nextIndex = getValidNextIndex("", currentIndex, (len - 1));
 
         if ( nextIndex === null ) {
             changePlayingSong(songs[currentIndex]);
         } else {
             changePlayingSong(songs[nextIndex]);
-            audioRef.current.play()
+            setTimeout(() => {
+                audioRef.current.play();
+            }, 0.1);
+            setPlayingSong( state => {
+                return {...state, playedLen: 0, playing: true}
+            });
         }
-        setPlayingSong( state => {
-            return {...state, playedLen: 0, playing: false}
-        });
     }
     /**********************************************************************************/
 
