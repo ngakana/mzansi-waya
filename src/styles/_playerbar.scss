@@ -9,34 +9,6 @@
     padding: 0.1rem 0.5rem;
     border-top: 2px solid black;
 
-    .song-card {
-        display: flex;
-        overflow: hidden;
-
-        img {
-            width: 90px;
-            height: 80px;
-            object-fit: fill;
-            border-radius: 0.4rem;
-        }
-
-        .song-details {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            color: #5b3e96;
-            margin: 0.2rem 0;
-            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans';
-
-            div:nth-child(1) p {
-                font-weight: 900;
-            }
-            div:nth-child(2) p {
-                font-weight: normal;
-            }
-        }
-    }
-
     .media-play-controls {
         grid-area: controls;
         display: flex;
