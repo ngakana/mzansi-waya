@@ -18,10 +18,10 @@ export const PlayingSongProvider = (props) => {
             }
     });
 
-    const changePlayingSong = async (desiredSong) => {
+    const changePlayingSong = async (id) => {
 
         const updatedSongs = songs.map( song => {
-            if ( song.id === desiredSong.id ) {
+            if ( song.id === id ) {
                 setPlayingSong({
                     "song": song,
                     "len": 0,
@@ -30,7 +30,7 @@ export const PlayingSongProvider = (props) => {
                     "playing": false,
                 });
                 
-                return song;
+                return {...song, active: true};
             } else {
                 return {...song, active: false}
             }
