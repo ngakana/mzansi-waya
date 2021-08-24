@@ -7,8 +7,6 @@ export const SongsContext = createContext();
 export const SongsProvider = (props) => {
     
     const [songs, setSongs] = useState( () => {
-        // const prevState = localStorage.getItem("songs");
-        // console.log(prevState);
         const newState = data();
         return newState;
     });
