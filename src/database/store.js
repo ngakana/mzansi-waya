@@ -16,15 +16,15 @@ import Distance from "database/mirage/Distance Nymano Ouska Anetta-Morozova.mp3"
 import Cold_Outside from "database/mirage/Cold-Outside Nymano.mp3";
 import Blurry from "database/mirage/Blurry Nymano Hyume.mp3";
 
-import viatecture from "database/wanderlust/viatecture makzo leavv.mp3";
 import wanderlust_cover from "database/wanderlust/artwork.jpeg";
 import Wayfare from "database/wanderlust/Wayfare Makzo The-Kount.mp3";
-import Trainspotting from "database/wanderlust/Trainspotting makzo Aarigod.mp3";
+import Viatecture from "database/wanderlust/Viatecture Makzo leavv.mp3";
+import Trainspotting from "database/wanderlust/Trainspotting Makzo Aarigod.mp3";
 import Tether from "database/wanderlust/Tether Makzo Bcalm.mp3";
-import Safe_Haven from "database/wanderlust/Safe-Haven makzo Oatmello.mp3";
+import Safe_Haven from "database/wanderlust/Safe-Haven Makzo Oatmello.mp3";
 import Magnitude from "database/wanderlust/Magnitude Makzo Hoffy-Beats.mp3";
 import Layover from "database/wanderlust/Layover Makzo brillion.mp3";
-import Caravan from "database/wanderlust/Caravan makzo goosetaf The-Field-Tapes.mp3";
+import Caravan from "database/wanderlust/Caravan Makzo goosetaf The-Field-Tapes.mp3";
 import Badlands from "database/wanderlust/Badlands Makzo Hanz.mp3";
 import Airplane_Mode from "database/wanderlust/Airplane-Mode Makzo Axian falcxne.mp3";
 
@@ -167,16 +167,6 @@ function musicStore() {
         },
         {
             "album": "wanderlust",
-            "artist": "makzo",
-            "artwork": mirage_cover,
-            "audio": viatecture,
-            "title": "viatecture",
-            "featured": [', leavv'],
-            "id": uuidv4(),
-            "active": false,
-        },
-        {
-            "album": "wanderlust",
             "artist": "Makzo",
             "artwork": wanderlust_cover,
             "audio": Wayfare,
@@ -187,7 +177,17 @@ function musicStore() {
         },
         {
             "album": "wanderlust",
-            "artist": "makzo",
+            "artist": "Makzo",
+            "artwork": wanderlust_cover,
+            "audio": Viatecture,
+            "title": "Viatecture",
+            "featured": [', leavv'],
+            "id": uuidv4(),
+            "active": false,
+        },
+        {
+            "album": "wanderlust",
+            "artist": "Makzo",
             "artwork": wanderlust_cover,
             "audio": Trainspotting,
             "title": "Trainspotting",
@@ -207,7 +207,7 @@ function musicStore() {
         },
         {
             "album": "wanderlust",
-            "artist": "makzo",
+            "artist": "Makzo",
             "artwork": wanderlust_cover,
             "audio": Safe_Haven,
             "title": "Safe Haven",
@@ -237,7 +237,7 @@ function musicStore() {
         },
         {
             "album": "wanderlust",
-            "artist": "makzo",
+            "artist": "Makzo",
             "artwork": wanderlust_cover,
             "audio": Caravan,
             "title": "Caravan",
