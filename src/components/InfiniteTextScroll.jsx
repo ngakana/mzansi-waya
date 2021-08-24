@@ -1,5 +1,5 @@
 
-function InfiniteTextScroll({items}) {
+function InfiniteTextScroll({items, maxLen}) {
 
     let text = "";
     items.forEach(concatToString);
@@ -11,7 +11,7 @@ function InfiniteTextScroll({items}) {
     return(
         <div className="scroll-wrapper">
             {
-                text.length >= 14 ?
+                text.length >= maxLen ?
                 <div className="scroller">
                     <p className="scrolling-text-1" >{text}</p>
                     <p className="scrolling-text-2" >{text}</p>
