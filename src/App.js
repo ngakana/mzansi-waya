@@ -3,6 +3,7 @@ import "./styles/app.css"
 import Header from "./components/Header";
 import Chatbox from "./components/Chatbox";
 import Playerbar from "components/Playerbar";
+import SongsLibrary from "components/SongsLibrary";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <Chatbox />
       <Playerbar />
+      <SongsLibrary />
     </div>
   );
 }
