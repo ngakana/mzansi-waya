@@ -1,0 +1,39 @@
+.songs-library {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0.1rem 0 0.1rem 0;
+    overflow-y: scroll;
+
+    list-style: none;
+
+    li {
+        padding: 0.5rem 0.5rem;
+        border-bottom: 1px solid slategray;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(245, 245, 245, 0.8);
+        }
+    }
+
+    .selected-song {
+        background-color: whitesmoke !important;
+    }
+
+    scrollbar-color: #5b3e96 #1b1d2b;
+    scrollbar-color: #ccc #1b1d2b;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+        width: 0.25rem;
+    }
+    
+    &::-webkit-scrollbar-track {
+    background: #1b1d2b;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: #6649b8;
+    }
+}

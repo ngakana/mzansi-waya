@@ -15,7 +15,9 @@ body {
 @import "./header";
 @import "./chatbox";
 @import "./infintescroll";
+@import "./songcard";
 @import "./playerbar";
+@import "./songslibrary";
 
 .App {
     height: 99vh;
@@ -44,4 +46,8 @@ header {
 
 .playerbar {
     grid-area: player;
+}
+
+.songs-library {
+    grid-area: songs;
 }
