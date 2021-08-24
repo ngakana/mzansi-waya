@@ -5,8 +5,8 @@ def get_album_title(path):
     return os.path.basename(path)
 
 def get_artist_name(filename):
-    name = filename.split(" ")[1].replace("-"," ")
-    name += ","
+    name = filename.split(".")[0]
+    name = name.split(" ")[1].replace("-"," ")
     return name
 
 def get_artwork(filename, root):
@@ -31,8 +31,8 @@ def get_featured_artists(filename):
         names = artists[1:]
         for index, name in enumerate(names):
             name = name.replace("-", " ")
-            if index != len(names) - 1:
-                name += ","
+            suffix = ", "
+            name = suffix + name
             contributors.append(name)
     
     return contributors
