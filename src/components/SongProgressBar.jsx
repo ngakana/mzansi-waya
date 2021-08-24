@@ -16,7 +16,7 @@ function SongProgressBar() {
     return(
         <div className="song-progress-bar">
             <p>{startTime}</p>
-            <RangeInput name="track" max={playingSong.len} step="10" progress={playingSong.playedLen} changeHandler={seekHandler}  />
+            <RangeInput name="track" max={playingSong.len} progress={playingSong.playedLen} changeHandler={seekHandler}  />
             <p>{endTime}</p>
         </div>
     );
