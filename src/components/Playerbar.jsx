@@ -19,6 +19,7 @@ function Playerbar() {
                 title={playingSong.song.title}
                 artist={playingSong.song.artist}
                 featured={playingSong.song.featured}
+                scrollThres={21}
             />
             <MediaPlayControls />
             <PlaybackSettingsControls />
