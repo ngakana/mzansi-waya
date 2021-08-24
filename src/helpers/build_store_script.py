@@ -29,7 +29,7 @@ def get_featured_artists(filename):
 
     if len(artists) > 1:
         names = artists[1:]
-        for index, name in enumerate(names):
+        for name in names:
             name = name.replace("-", " ")
             suffix = ", "
             name = suffix + name
