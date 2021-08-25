@@ -59,7 +59,6 @@ function VolumeControl() {
                 name="vol"
                 min="0"
                 max="100"
-                step="5"
                 progress={(audioRef.current && (audioRef.current.volume*100)) || vol}
                 // progress={vol}
                 changeHandler={handleSeek}
