@@ -29,7 +29,7 @@ body {
     "player player";
     grid-template-rows: 70px auto 85px;
     grid-template-columns: clamp(420px, 32%, 420px) auto;
-    gap: 0rem;
+    gap: 0.5rem;
 
     svg, .text {
         z-index: 1;
