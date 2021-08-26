@@ -6,23 +6,91 @@
     overflow-y: scroll;
 
     list-style: none;
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
 
     li {
+        position: relative;
         padding: 0.5rem 0.5rem;
         border-bottom: 1px solid slategray;
         cursor: pointer;
+        scroll-snap-align: start;
+
+        svg {
+            width: 50px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(50%,50%);
+            fill: whitesmoke;
+            opacity: 0;
+        }
 
         &:hover {
             background-color: rgba(245, 245, 245, 0.8);
+
+            svg {
+                opacity: 1;
+            }
         }
     }
 
     .selected-song {
+        position: relative;
         background-color: whitesmoke !important;
+        height: 785px;
+        padding: 0;
+        scroll-snap-align: start;
+        scroll-snap-stop: true;
+        cursor: auto;
+
+        svg {
+            position: absolute;
+            width: 100px;
+            top: 75%;
+            left: 20%;
+            transition: opacity 1s ease;
+            cursor: pointer;
+        }
+
+        .song-card {
+            height: calc(785px - 1rem) !important;
+            transform: translate(0,0);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            img {
+                background-color: #232533;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-radius: 0;
+                object-fit: contain;
+                object-position: center;
+                width: 100%;
+                height: 100%; 
+                z-index: -1;
+            }
+
+            .song-details {
+                opacity: 0;
+                margin: 100px 0 38px 420px;
+                p{
+                    font-size: 2em;
+                    text-shadow: 1px 1px 2px black;
+                }
+                transition: opacity 1s ease;
+            }
+        }
+        &:hover {
+            svg, .song-details {
+                opacity: 1;
+            }
+        }        
     }
 
     scrollbar-color: #5b3e96 #1b1d2b;
-    scrollbar-color: #ccc #1b1d2b;
     scrollbar-width: thin;
 
     &::-webkit-scrollbar {
