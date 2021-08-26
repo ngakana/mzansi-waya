@@ -4,6 +4,7 @@
     position: relative;
     top: 0;
     transform: translateY(5%);
+    transition: height 1000ms ease;
 
     img {
         width: 90px;
